@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Generador de tabla de horas extras</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header>
-    <h1>Generador de tabla de horas extras</h1>
-  </header>
-  <main>
-    <p>Seleccione un archivo Excel para generar una tabla de horas extras:</p>
-    <form>
-      <label for="archivo-excel">Archivo Excel:</label>
-      <input type="file" id="archivo-excel" name="archivo-excel">
-      <button type="submit">Cargar archivo</button>
-    </form>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Horas Extras | efeuno.co</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="js/script.js"></script>
+  
+    
+  </head>
+  <body>
+    <header>
+      <h1>Horas Extras</h1>
+      <p>Esta herramienta permite generar una tabla de horas extras a partir de un archivo Excel.</p>
+
+      <nav class="nav-bar">
+        <a href="#" class="logo nav-link"><img src="assets/images/logo.png" alt=""></a>
+        <button class="nav-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+        <ul class="nav-menu">
+          <li class="nav-menu-item"><a href="#generator" class="nav-menu-link nav-link">Inicio</a></li>
+          <li class="nav-menu-item"><a href="#settings" class="nav-menu-link nav-link">Ajustes</a></li>
+          <li class="nav-menu-item"><a href="https://api.whatsapp.com/send?phone=573133934670" target="_blank" class="nav-menu-link nav-link">Ayuda</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <div id="generator" class="generator">
+      <input type="file" id="fileInput">
+      <button onclick="validarArchivo()">Cargar archivo</button>
+      <div id="mensaje"></div>
+      <div id="resultado"></div>
+    </div>
+
+    <div id="settings" class="settings">
+      <h2>Ajustes</h2>
+      <form>
+        <label for="salario">Salario</label><input type="text" class="salario" value="1000000"><br>
+        <label for="hed">Hora extra diurna</label><input type="text" class="hed" value="1.25"><br>
+        <label for="hen">Hora extra nocturna</label><input type="text" class="hen" value="1.75"><br>
+        <label for="dym">Domingos y Festivos</label><input type="text" class="dym" value="1.75"><br>
+        <label for="hedym">Hora extra diurna Domingos y Festivos</label><input type="text" class="hedym" value="2"><br>
+        <label for="hendym">Hora extra nocturna Domingos y Festivos</label><input type="text" class="hendym" value="2.5"><br>
+       
+      </form>
+    </div>
+
+    <div id="table-container"></div>
+
+    <footer>
+      <p>Desarrollado por: efeuno.co</p>
+    </footer>
+
+    
+  </body>
 </html>
